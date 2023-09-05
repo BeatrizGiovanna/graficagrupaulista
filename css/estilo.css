@@ -1,70 +1,310 @@
-* {
+html, body{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Style the header */
-  header {
-    background-color: #333333;
-    padding: 30px;
+    background-color: #D8C3A5;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 15vh 100vh 10vh;
+    grid-gap: 5px;
+    grid-template-areas:  "h h"
+                
+                "a m"
+                "f f"
+                
+}
+
+header{
+    background-color: #8E8D8A;
+    grid-area: h;
+    margin: 5px;
+    
+}
+
+main{
+    background-color: #EAE7DC;
+    grid-area: m;
+    transition: margin 0.4s;
+    margin-right: 5px;
+}
+
+aside{
+    background-color: #8E8D8A;
+    grid-area: a;
+    margin-left: 5px;
+    transition: all 0.35s;
+}
+
+footer{
+    background-color: #8E8D8A;
+    grid-template-rows: f;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #fff;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #2C3531;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: #fff;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 730px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+    .nav-item {
+        display: none;
+    }
+    .login-button {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: block;
+    }
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+    .mobile-menu .login-button {
+        display: block;
+        padding: 1rem 2rem;
+    }
+    .mobile-menu .login-button button {
+        width: 100%;
+    }
+    .open {
+        display: block;
+    }
+}
+
+.logo-img{
+    width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+    transition: transform 0.4s;
+}
+
+.sidebar-header{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.logo-img:hover{
+    transform: scale(1.5);
+}
+
+aside button{
+    height: 60px;
+    background-color: transparent;
+    border: 0;
+    font-family: sans-serif;
+    color: #FFF;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    text-align: left;
+}
+
+aside button > span{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 40px 0 5px;
+    border-radius: 24px;
+    line-height: 1;
+    transition: all 0.2s;
+}
+
+aside button:hover > span{
+    background: #2C3531;
+}
+
+aside button i{
+    position: relative;
+    font-size: 28px;
+    transition: 0.2;
+}
+
+aside button span{
+    font-size: 16px;
+}
+
+aside > nav{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media screen and (max-width: 720px ){
+    aside{
+        width: 72px;
+    }
+    aside button > span{
+        width: 50px;
+    }
+    aside button > span > span{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.content-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.card{
+    width: 200px;
+    height: 320px;
+    border-radius: 5px;
+    margin: 25px 10px 5px 10px;
+    background-color: #E8A87C;
+}
+
+.imagem{
+    display: flex;
+    justify-content: center;
+}
+
+.card-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.text-main{
     text-align: center;
-    font-size: 35px;
-    color: white;
-  }
-  
-  nav{
-    background-color: #666;
-    padding: 30px;
+    color: #FFF;
+    font-weight: 600;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+.desc{
+    font-family: sans-serif;
+    color: #FFF;
+    font-weight: 300;
     text-align: center;
     font-size: 15px;
-    color: white;
+    margin: 10px;
+}
 
-  }
-  /* Create two columns/boxes that floats next to each other */
-  menulateral {
-    float: left;
-    width: 30%;
-    height: 300px; /* only for demonstration, should be removed */
-    background: #666666;
-    padding: 20px;
-  }
-  
-  /* Style the list inside the menu */
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  article {
-    float: left;
-    padding: 20px;
-    width: 70%;
-    background-color: #f1f1f1;
-    height: 300px; /* only for demonstration, should be removed */
-  }
-  
-  /* Clear floats after the columns */
-  section::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the footer */
-  footer {
-    background-color: #333333;
-    padding: 10px;
-    text-align: center;
+.btn > a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 200;
+    font-size: 1rem;
+
+}
+
+.butt {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.btn {
+    width: 6.5em;
+    height: 2.3em;
+    margin: 0.5em;
+    background: #E27D60;
     color: white;
-  }
-  
-  /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-  @media (max-width: 600px) {
-    nav, article {
-      width: 100%;
-      height: auto;
-    }
-  }
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+   
+   button:hover {
+    color: black;
+   }
+   
+   button:after {
+    content: "";
+    background: #E8A87C;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+   
+   button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
